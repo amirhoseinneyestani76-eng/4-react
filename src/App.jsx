@@ -1,11 +1,18 @@
-import React from 'react'
-import ChangeTitle from './Components/ChangeTitle'
+import React, { useState } from "react";
+import Products from "./Components/Products";
+import Loading from "./Components/Loading";
 
 export default function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const handleLogin = () => setIsLogin(!isLogin);
+  
   return (
     <>
-    <ChangeTitle/>
+      {isLogin ? (
+        <Products/>
+      ) : (
+        <Login/>
+      )}
     </>
-  )
+  );
 }
-
